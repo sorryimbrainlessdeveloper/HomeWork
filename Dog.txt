@@ -1,0 +1,45 @@
+package geekbrains.java_core.lesson1;
+
+public class Dog extends Animal {
+
+    private final int MAX_JUMP = 10;
+    private final int MAX_RUN = 150;
+    private final int MAX_SWIM = 50;
+    private int jumpLimit;
+    private int runLimit;
+    private int swimLimit;
+
+    public Dog(String name){
+        this.name = name;
+        jumpLimit = MAX_JUMP;
+        runLimit = MAX_RUN;
+        swimLimit = MAX_SWIM;
+    }
+
+    public Dog(String name, int jumpLimit, int runLimit, int swimLimit){
+        this.name = name;
+        this.jumpLimit = jumpLimit;
+        this.runLimit = runLimit;
+        this.swimLimit = swimLimit;
+    }
+
+    @Override
+    void makeSound(){
+        System.out.println("wof");
+    }
+
+    @Override
+    public boolean run() {
+        return runLimit >= MAX_RUN;
+    }
+
+    @Override
+    public boolean jump() {
+        return jumpLimit >= MAX_JUMP;
+    }
+
+    @Override
+    public boolean swim() {
+        return swimLimit >= MAX_SWIM;
+    }
+}

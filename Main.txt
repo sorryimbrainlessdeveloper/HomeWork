@@ -1,0 +1,26 @@
+package geekbrains.java_core.lesson1;
+
+public class Main {
+    public static void main(String[] args) {
+        Course c = new Course();
+        Team team = new Team("ololo team");
+        Animal[] animals = {new Cat("barsik"), new Dog("sharik"), new Lion("king")};
+        Track track = new Track(50);
+        Wall wall = new Wall(10);
+        Water water = new Water(70);
+
+        for(Animal animal : animals) {
+            System.out.println("run " + track.doIt(animal));
+            System.out.println("jump " + wall.doIt(animal));
+            System.out.println("swim " + water.doIt(animal));
+        }
+
+        c.doIt();
+        team.showResults();
+
+        team.membersOvercameTheDistance();
+        team.allMembers();
+
+    }
+
+}

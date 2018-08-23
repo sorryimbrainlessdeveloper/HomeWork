@@ -1,0 +1,15 @@
+package geekbrains.java_core.lesson1;
+
+public class InvestAccount extends Account {
+    public InvestAccount(int id){
+        super(id);
+        System.out.println(amount);
+    }
+
+    @Override
+    public void setAmount(double amount) {
+        System.out.println("set new amount = " + amount);
+        super.setAmount(amount);
+    }
+
+}

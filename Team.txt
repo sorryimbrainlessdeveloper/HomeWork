@@ -1,0 +1,38 @@
+package geekbrains.java_core.lesson1;
+
+import java.util.Random;
+
+public class Team {
+
+    private String teamName;
+    Animal[] animals = {new Cat("barsik"), new Dog("sharik"), new Lion("king")};
+
+    public Animal[] teamAnimal = new Animal[4];
+    Random random = new Random();
+
+    public Team(String teamName){
+        this.teamName = teamName;
+        for (int i = 0; i < teamAnimal.length; i++) {
+            int rand = random.nextInt(3);
+            teamAnimal[i] = animals[rand];
+        }
+    }
+
+    public void showResults() {
+
+    }
+
+    public void membersOvercameTheDistance() {
+
+    }
+
+    public void allMembers() {
+        System.out.println("Team - " + teamName);
+        for(Animal animal : teamAnimal){
+            System.out.println(animal);
+            System.out.println("Run limit " + animal.runLimit);
+            System.out.println("Jump limit " + animal.jumpLimit);
+            System.out.println("Swim limit " + animal.swimLimit);
+        }
+    }
+}

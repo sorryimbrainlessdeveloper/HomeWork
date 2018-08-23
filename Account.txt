@@ -1,0 +1,61 @@
+package geekbrains.java_core.lesson1;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Account {
+    private final long id;
+    private String fio;
+    protected double amount;
+
+    public Account(int id){
+        this.id = id;
+    }
+    public Account(){
+        this(0);
+        System.out.println("call default constructor");
+    }
+
+    public void addValue(double v){
+        this.amount += v;
+    }
+
+    public static void main(String[] args) {
+        Account account1 = new Account(1);
+        //account1.setId(1);
+        account1.setFio("ololo");
+        account1.setAmount(1500);
+
+        System.out.println(account1.getFio());
+
+        Account account2 = new Account(2);
+        //account2.setId(2);
+        account2.setFio("kokoko");
+        account2.setAmount(1000);
+
+    }
+
+   /* public void setId(long id) {
+        this.id = id;
+    }*/
+
+    public void setFio(String fio) {
+        this.fio = fio;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getFio() {
+        return fio;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+}

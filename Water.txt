@@ -1,0 +1,13 @@
+package geekbrains.java_core.lesson1;
+
+public class Water {
+    private int width;
+
+    public Water(int width){
+        this.width = width;
+    }
+
+    public boolean doIt(Animal animal){
+        return animal.swim(width);
+    }
+}

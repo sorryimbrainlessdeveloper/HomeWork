@@ -1,0 +1,45 @@
+package geekbrains.java_core.lesson1;
+
+public class Lion extends Animal {
+
+    private final int MAX_JUMP = 20;
+    private final int MAX_RUN = 200;
+    private final int MAX_SWIM = 100;
+    private int jumpLimit;
+    private int runLimit;
+    private int swimLimit;
+
+    public Lion(String name){
+        this.name = name;
+        jumpLimit = MAX_JUMP;
+        runLimit = MAX_RUN;
+        swimLimit = MAX_SWIM;
+    }
+
+    public Lion(String name, int jumpLimit, int runLimit, int swimLimit){
+        this.name = name;
+        this.jumpLimit = jumpLimit;
+        this.runLimit = runLimit;
+        this.swimLimit = swimLimit;
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("ARRR");
+    }
+
+    @Override
+    public boolean run() {
+        return runLimit >= MAX_RUN;
+    }
+
+    @Override
+    public boolean jump() {
+        return jumpLimit >= MAX_JUMP;
+    }
+
+    @Override
+    public boolean swim() {
+        return swimLimit >= MAX_SWIM;
+    }
+}
