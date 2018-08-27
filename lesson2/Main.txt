@@ -1,0 +1,39 @@
+package java_core.lesson2;
+
+public class Main {
+    static String[][] arr = {{"21", "23", "34", "54"}, {"25", "36", "74", "82"}};
+    static int x,z;
+    static int sum1,sum2,amount;
+
+    private static void getAmount(String arr[][]){
+
+            for (int i = 0; i < 4; i++) {
+                x = Integer.parseInt(arr[0][i]);
+                z = Integer.parseInt(arr[1][i]);
+                sum1 += x;
+                sum2 += z;
+                amount = sum1 + sum2;
+            }
+            System.out.println(amount);
+    }
+    public static void main (String[]args) throws MyArrayDataException,MyArraySizeException {
+        getAmount(arr);
+    }
+
+    private static class MyArraySizeException extends Exception {
+        public void myException1(){
+           if((arr[0].length != 4) && (arr[1].length != 4)){
+               System.out.println("Неверный размер массива");
+           }
+        }
+    }
+    private static class MyArrayDataException extends Exception {
+        public void myException2(){
+            for (int i = 0; i < arr[0].length; i++) {
+                x = Integer.parseInt(arr[0][i]);
+                z = Integer.parseInt(arr[1][i]);
+                System.out.println("Неудалось преобразовать число.");
+            }
+        }
+    }
+}
