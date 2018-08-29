@@ -1,39 +1,38 @@
-package java_core.lesson2;
+ï»¿package java_core.lesson2;
 
 public class Main {
-    static String[][] arr = {{"21", "23", "34", "54"}, {"25", "36", "74", "82"}};
-    static int x,z;
-    static int sum1,sum2,amount;
 
-    private static void getAmount(String arr[][]){
+    private static final int MAX = 4;
+    private static String [][] arr = new String[][]{
+            {"1","2","3","4"},
+            //{"5","6","7","8"},
+            {"9","10","11","12"},
+            {"13","14","15","16"}};
 
-            for (int i = 0; i < 4; i++) {
-                x = Integer.parseInt(arr[0][i]);
-                z = Integer.parseInt(arr[1][i]);
-                sum1 += x;
-                sum2 += z;
-                amount = sum1 + sum2;
+    public static void main(String[] args) {
+        int value = calculateArraySum(arr);
+        System.out.println(value);
+    }
+
+    private static int calculateArraySum(String[][] arr) {
+        int result = 0;
+        try {
+            if (arr.length != MAX)
+                throw new MyArraySizeException("Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°.");
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].length != MAX)
+                    throw new MyArraySizeException("Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°.");
+                for (int j = 0; j < arr[i].length; j++) {
+                    try {
+                        result += Integer.parseInt(arr[i][j]);
+                    } catch (NumberFormatException e){
+                        throw new MyArrayDataException("Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ = " + arr[i][j],i,j);
+                    }
+                }
             }
-            System.out.println(amount);
-    }
-    public static void main (String[]args) throws MyArrayDataException,MyArraySizeException {
-        getAmount(arr);
-    }
-
-    private static class MyArraySizeException extends Exception {
-        public void myException1(){
-           if((arr[0].length != 4) && (arr[1].length != 4)){
-               System.out.println("Íåâåðíûé ðàçìåð ìàññèâà");
-           }
+        } catch(MyException me){
+            System.out.println(me.toString());
         }
-    }
-    private static class MyArrayDataException extends Exception {
-        public void myException2(){
-            for (int i = 0; i < arr[0].length; i++) {
-                x = Integer.parseInt(arr[0][i]);
-                z = Integer.parseInt(arr[1][i]);
-                System.out.println("Íåóäàëîñü ïðåîáðàçîâàòü ÷èñëî.");
-            }
-        }
+        return result;
     }
 }

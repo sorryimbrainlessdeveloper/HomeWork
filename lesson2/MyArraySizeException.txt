@@ -1,0 +1,11 @@
+﻿public class MyArraySizeException extends MyException {
+
+    public MyArraySizeException(String s) {
+        super(s);
+    }
+
+    @Override
+    public String toString() {
+        return "Некорректный размер массива.";
+    }
+}

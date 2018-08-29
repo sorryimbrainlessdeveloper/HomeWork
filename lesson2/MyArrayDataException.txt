@@ -1,0 +1,12 @@
+﻿public class MyArrayDataException extends MyException {
+    private int row;
+    private int column;
+    public MyArrayDataException(String s, int i, int j) {
+        super(s);
+    }
+
+    @Override
+    public String toString() {
+        return "Некорреетное значение {" + "строка = " + row + ", столбец = " + column + "}";
+    }
+}
