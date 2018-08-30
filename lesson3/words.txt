@@ -1,0 +1,33 @@
+﻿import java.util.*;
+
+public class Lesson3 {
+    static String[] words = {"hello","by","good","apple","hello","wow","sleep","apple","hello","morning","apple","hello","by","night","since"};
+    static List<String> list = new ArrayList<>();
+
+
+    public static void main(String[] args) {
+        uniqueWords();
+        wordsCount();
+    }
+
+    private static void uniqueWords() {
+        Set<String> unique = new HashSet<>();
+        for (int i = 0; i < words.length; i++) {
+            unique.add(words[i]);
+        }
+        System.out.println(unique);
+    }
+
+    private static void wordsCount() {
+        for (int i = 0; i < words.length; i++) {
+            int count = 0;
+            for (int j = 0; j < words.length; j++) {
+                if(words[i].equals(words[j])){
+                    list.add(words[i]);
+                    count++;
+                }
+            }
+            System.out.println(words[i] + " " + count);
+        }
+    }
+}

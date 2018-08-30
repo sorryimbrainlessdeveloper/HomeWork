@@ -1,0 +1,23 @@
+﻿import java.util.*;
+
+public class phone_book {
+
+    public static void main(String[] args) {
+        phoneBook();
+    }
+
+    private static void phoneBook() {
+        Map<String,Integer> pb = new HashMap<>();
+        pb.put("petrov", 1234);
+        pb.put("ivanov", 1235);
+        pb.put("sidorov", 1236);
+        pb.put("vasilev", 1237);
+        pb.put("ivanov", 1238);
+        pb.put("petrov", 1239);
+
+        Set<Map.Entry<String, Integer>> map = pb.entrySet();
+        for (Map.Entry<String, Integer> o : map) {
+            System.out.println(o.getKey() + " : " + o.getValue());
+        }
+    }
+}
