@@ -1,0 +1,34 @@
+﻿import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class Window extends JFrame implements ActionListener{
+    JButton button = new JButton("Send");
+    JTextArea jta = new JTextArea();
+    JTextField jtf = new JTextField("message...",20);
+    JPanel panel = new JPanel();
+
+    public  Window(){
+        setTitle("Messenger");
+        setBounds(200,200,500,300);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        jtf.addActionListener(this);
+        button.addActionListener(this);
+        add(jta,BorderLayout.CENTER);
+        add(panel, BorderLayout.SOUTH);
+        panel.add(button, BorderLayout.EAST);
+        panel.add(jtf, BorderLayout.CENTER);
+
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String msg = jtf.getText();
+        jta.setText(msg);
+    }
+}
+
